@@ -1,0 +1,90 @@
+<h1 class="field">Tu Perfil </h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+<!--
+  <div class="field">
+    <h3 class="field">Subir foto de Perfil: </h3><%= f.file_field :cover, autocomplete: "off", class:"form-control" %>
+  </div>
+-->
+  <div class="field">
+    <h3 class="field"><%= f.label :email %></h3><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <h3 class="field"><%= f.label :password, "Contraseña" %></h3> <i>(Deje en blanco si no desea cambiarlo)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <h3 class="field"><%= f.label :password_confirmation, "Confirmar contraseña" %></h3><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <h3 class="field"><%= f.label :current_password, "Contraseña actual" %></h3> <i>(Necesitamos su contraseña actual para confirmar los cambios)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+  <div class="field">
+    <h3 class="field"><%= f.label :title, "Nombre Completo" %></h3><br />
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <h3 class="field"><%= f.label :rut %></h3><br />
+    <%= f.text_field :rut, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <h3 class="field"><%= f.label :telefono, "Teléfono" %></h3><br />
+    <%= f.text_field :telefono, autofocus: true %>
+  </div>
+
+  <div class='field'>
+    <% nombres = {'Alumno' => 'Alumno', 'Docente' => 'Docente'} %>
+      <% lista = nombres.sort %>
+
+      <h3 class="field"><%= f.label :tipo, "Eres un Usuario tipo " %></h3>
+      <p><%= f.select :tipo, lista, autocomplete: "off", class:"form-control" %></p>
+  </div>
+
+  <div class="field">
+    <h3 class="field"><%= f.label :comuna, "De que Comuna eres?" %></h3><br />
+    <%= f.text_field :comuna, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <h3 class="field"><%= f.label :address, "Indique su Dirección" %></h3>
+    <%= f.text_field :address, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <h3 class="field"><%= f.label :asignatura, "Que Especialidad realizas?" %></h3><br />
+    <%= f.text_field :asignatura, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <h3 class="field">Adjuntar Curriculum: </h3><%= f.file_field :attachment, autocomplete: "off", class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <h3 class="field"><%= f.label :precio, "Indique el Precio por cada hora realizada" %></h3><br />
+    <%= f.text_field :precio, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Actualizar" %>
+  </div>
+<% end %>
+
+<h3 class="field">Cancelar mi cuenta</h3>
+
+<p class="field">Infeliz? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p class="field">
+<%= link_to "Atrás", :back %>
+</p>

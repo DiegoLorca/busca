@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h2 class="field">Estas conforme con los datos elegidos?</h2>
+
+<p class="field">
+  <strong>Fecha de la Clase:</strong>
+  <%= @reservation.fechaclase %>
+</p>
+
+<p class="field">
+  <strong>Hora de la Clase:</strong>
+  <%= @reservation.horaclase %>
+</p>
+<p class="field">
+<%= link_to 'No, volver a editar', edit_reservation_path(@reservation) %> |
+<%= link_to 'Si, volver al Foro', forums_path %>
+</p>

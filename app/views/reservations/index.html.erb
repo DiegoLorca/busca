@@ -1,0 +1,34 @@
+<!-- *******Esto me puede servir para la busqueda*******
+<h1>Lista de Reservaciones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Forum</th>
+      <th>Fechaclase</th>
+      <th>Horaclase</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.user %></td>
+        <td><%= reservation.forum %></td>
+        <td><%= reservation.fechaclase %></td>
+        <td><%= reservation.horaclase %></td>
+        <td><%= link_to 'Ver', reservation %></td>
+        <td><%= link_to 'Editar', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Eliminar', reservation, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Reservación', new_reservation_path %>
+
+-->

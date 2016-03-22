@@ -1,0 +1,21 @@
+<h1 class="field">Tu Agenda</h1>
+<div  class="field" id="teachers">
+<h2  class="field" id="month">
+	<%= link_to "<", date: @date.prev_month %>
+	<%= @date.strftime("%B %Y") %>
+	<%= link_to ">", date: @date.next_month %>
+</h2>
+<%= calendar @date do |date| %>
+	<%= date.day %>
+	<% if @teachers_by_date[date] %>
+		<ul>
+			<% @teachers_by_date[date].each do |teacher| %>
+				<li class="field"><%= link_to teacher.user.title, teacher %>
+					<%= link_to "Eliminar",teacher, method: :delete, class: "red" %></li>
+			<%end%>
+		</ul>
+	<%end%>
+<%end%>
+</div>
+
+

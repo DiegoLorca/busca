@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: MyString
+  hora: MyString
+  nota: MyText
+  conteo_visitas: 1
+
+two:
+  fecha: MyString
+  hora: MyString
+  nota: MyText
+  conteo_visitas: 1

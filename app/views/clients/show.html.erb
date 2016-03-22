@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p class="field">
+  <strong>Latitud:</strong>
+  <%= @client.latitude %>
+</p>
+
+<p class="field">
+  <strong>Longitud:</strong>
+  <%= @client.longitude %>
+</p>
+
+<p class="field">
+  <strong>Dirección:</strong>
+  <%= @client.address %>
+</p>
+
+<p class="field">
+  <strong>Descripción:</strong>
+  <%= @client.description %>
+</p>
+
+<p class="field">
+  <strong>Nombre:</strong>
+  <%= @client.title %>
+</p>
+<p class="field">
+<%= link_to 'Editar', edit_client_path(@client) %> |
+<%= link_to 'Volver a la Ruta', clients_path, 'data-no-turbolink' => true  %>
+</p>

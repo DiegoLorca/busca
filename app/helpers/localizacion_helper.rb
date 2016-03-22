@@ -1,0 +1,2 @@
+module LocalizacionHelper
+end

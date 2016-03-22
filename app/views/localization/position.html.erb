@@ -1,0 +1,111 @@
+
+<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry" type="text/javascript"></script>
+  <script>
+function success(position) {
+  var status = document.getElementById('status');
+  status.innerHTML = "";//linea modificada: status.innerHTML = "Su posicion..."; 
+
+  var mapcanvas = document.createElement('div');
+  mapcanvas.id = 'mapcanvas';
+  //mapcanvas.class= "main";
+  mapcanvas.style.margin = '0 auto';
+  mapcanvas.style.align= 'center';
+  mapcanvas.style.height = '350px';//400px//solo con height se crea responsivo el map de google y sin width
+  //mapcanvas.style.width = '200px';//560px
+
+  document.getElementById('map').appendChild(mapcanvas);
+
+  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  
+  //traje la libreria geometry y esta sentencia sirve para saber distancia entre 2 pts.
+  var latlng2 = new google.maps.LatLng(-33.6744555,-70.9406520);//lat,lng actual talagante: -33.6744546,-70.9406454
+  var metros = google.maps.geometry.spherical.computeDistanceBetween(latlng,latlng2);
+  alert(metros);
+  
+  
+  var myOptions = {
+    zoom: 15,
+    center: latlng,
+    mapTypeControl: false,
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+
+  var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+      title:"Usted está aquí."
+  });
+  
+  var perimetro = new google.maps.Circle({
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.5,
+      strokeWeight: 2,
+      fillColor: "#4BD56B",//FF0000
+      fillOpacity: 0.2,
+      map: map,
+      center: latlng,
+      radius: 200
+  });
+  
+}
+
+function error(msg) {
+  var status = document.getElementById('status');
+  status.innerHTML= "Error [" + error.code + "]: " + error.message;  
+}
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error,{maximumAge:60000, timeout: 4000});
+} else {
+  error('Su navegador no tiene soporte para su geolocalización.');
+}
+
+</script>
+
+
+<div class="main">
+		<h2>Tu Localización</h2>
+                <p id="status">Buscando su localización</p> 
+			<div id="map" class="grids_1_of_3">
+                            
+                                       
+                         </div>
+				<!--
+                               <div class="grid_1_of_3 images_1_of_3 bg1">
+					 <h3>Product 01</h3>
+					<div class="gallery">
+						<a href="web/images/pic1.jpg"><img src="web/images/pic1.jpg" title="image-name"></a>
+					</div>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore dolore magna aliqua.</p>
+					<div class="plus_btn">
+						<span></span>
+					</div>
+				</div>
+				<div class="grid_1_of_3 images_1_of_3 bg2">
+					 <h3>Product 02</h3>
+					<div class="gallery">
+						<a href="web/images/pic2.jpg"><img src="web/images/pic2.jpg" title="image-name"></a>
+					</div>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore dolore magna aliqua.</p>
+	 		   		<div class="plus_btn">
+						<span></span>
+					</div>
+				</div>
+				<div class="grid_1_of_3 images_1_of_3 bg3">
+					 <h3>Product 03</h3>
+					<div class="gallery">
+						<a href="web/images/pic3.jpg"><img src="web/images/pic3.jpg" title="image-name"></a>
+					</div>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore dolore magna aliqua.</p>
+				 	<div class="plus_btn">
+						<span></span>
+					</div>
+				</div>-->
+                                
+                              
+					<div class="clear"></div>
+			</div>
+		</div>

@@ -1,0 +1,36 @@
+<% name ||= "Crea" %>
+<h1 class="field"><%= name %> tu horario</h1>
+
+<%= form_for(@teacher #, remote: true, html: { id: "clients-form", :"data-type" => "json" }
+) do |f| %>
+<% if @teacher.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+    <ul>
+<% @teacher.errors.full_messages.each do |message| %>
+	<div class="be-red white top-space">
+		* <%= message %>
+	</div>
+<%end%>
+</ul>
+</div>
+<%end%>
+
+<div class="field">
+    <%= f.label :user_id, "Nombre del Alumno" %><br />
+    <%= collection_select(:teacher, :user_id, User.all, :id, :title, {:multiple => false}) %>
+</div>
+<div id="teachers-box" class="field">
+    <%= f.label :published_on, "Seleccione una fecha" %><br />
+    <%= f.text_field :published_on, class:"form-control" %>
+</div>
+<div class="field">
+    <%= f.label :content, "Generar una nota (máximo 250 caracteres)" %><br />
+    <%= f.text_area :content, style:"height: 250px;", class:"form-control"  %>
+</div>
+<div class="field">
+	<%= f.submit "Grabar", class:"btn be-red white large-padding" %>
+</div>	
+<%end%>
+
+<!--Hay que cambiar el orden, tiene que ser aleatorio y no siempre tiene que elegir a la misma persona-->

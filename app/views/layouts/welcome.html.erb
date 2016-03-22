@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alumno</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <ul>
+  <li class="home"><%= image_tag "LogoBuscaProfe.png", size: "150x150" %></li>
+
+  <li class="home"><%=link_to "Inicio", root_path %></li>
+  <% if user_signed_in? %>
+  <li class="home"><%= link_to "Foro", forums_path %></li>
+  <li class="contact"><%= link_to "Tu Perfil", edit_user_registration_path %>
+    <ul>
+            <li class="ill"><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+            <%else%>
+        <li class="ill"><%= link_to "Iniciar sesión", new_user_session_path %></li>
+        <li class="ill"><%= link_to "Crear cuenta", new_user_registration_path %></li>
+      <% end %>
+      
+    </ul>
+  </li>
+      <% if user_signed_in? %>
+      <li class="home">
+      <h1><%= current_user.email %></h1><%= image_tag "@user.cover.url()" , size: "45x30", position: "center" %></li>
+             <!--Se tiene que cambiar a este link para ver la imagen de perfil subida< % = image_tag  @ user . c o v e r . url() % >
+            -->
+    <%end%>
+</ul>
+<%= yield %>
+
+</body>
+</html>

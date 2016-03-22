@@ -1,0 +1,13 @@
+<% @forums.each do |forum| %>
+	<h1 class="field"><%= link_to forum.slogan, forum %></h1>
+	<div class="field">
+		<%= forum.presentacion %>
+	</div>	
+	
+	<div class="field">
+		<%= forum.hora %> - <%= link_to "Eliminar", forum, method: :delete %>
+	</div>
+<%end%>
+<div class="field">
+	<%= link_to "Crear un nuevo Foro", new_forum_path %>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  slogan: MyString
+  presentacion: MyText
+  hora: MyString
+
+two:
+  slogan: MyString
+  presentacion: MyText
+  hora: MyString

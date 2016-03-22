@@ -1,0 +1,21 @@
+<div class="field">
+	<% if user_signed_in? %>
+		<h1 class="field">Bienvenido (a) <%= current_user.title %></h1>
+	<%end%>
+	<div class="field">
+		  <h1 class="field">Encuentra la ayuda que necesitas!</h1>
+		  <br>
+		  <br>
+		  <form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+			  <input type="text" class="form-control" placeholder="Que especialidad desea?..." size="50">
+			</div>
+			<div class="field">
+				<%= button_to "Buscar Docente", new_reservation_path(@welcome), :class => "button", :method => :get  %>
+				<!--Hay que cambiar la url del boton-->
+			</div>
+		</form>
+		</p>
+		<br>
+	</div>
+</div>

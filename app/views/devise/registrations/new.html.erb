@@ -1,0 +1,68 @@
+<div class="row center-xs">
+  <div class= "col-xs-8 col-md-6">
+    <div class="box text-left">
+      <h2 class="field">Crear cuenta</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "Contraseña (8 caracteres mínimo)" %>
+          <% if @validatable %>
+          <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "Confirmar Contraseña" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :title, "Nombre Completo" %><br />
+          <%= f.text_field :title, autocomplete: "off", class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :telefono,"Teléfono (Código de área + 2 + Número)" %><br />
+          <%= f.text_field :telefono, autocomplete: "off", class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :rut %><br />
+          <%= f.text_field :rut, autocomplete: "off", class:"form-control" %>
+        </div>
+
+        <div class='field'>
+          <% nombres = {'Alumno' => 'Alumno', 'Docente' => 'Docente'} %>
+            <% lista = nombres.sort %>
+
+            <%= f.label :tipo, "Escoge que tipo de Usuario eres" %>
+            <%= f.select :tipo, lista, selected: "Docente" %>
+
+<!--             <fieldset>
+              <% lista = nombres.sort %>
+             <% lista.each do |tipo| %>
+              <%= f.radio_button :tipo, tipo[1] %>
+                <label for="<%= tipo[1] %>"><%= tipo[0] %></label>
+              <%end%> 
+            </fieldset>-->
+        </div>
+        
+
+        <div class="actions">
+          <%= f.submit "Crear cuenta", class:"btn be-red white"  %>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

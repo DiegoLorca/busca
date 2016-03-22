@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  forum_id: 
+  fechaclase: 2015-11-26 03:41:57
+  horaclase: MyString
+
+two:
+  user_id: 
+  forum_id: 
+  fechaclase: 2015-11-26 03:41:57
+  horaclase: MyString

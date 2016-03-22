@@ -1,0 +1,20 @@
+<h1 class="field"><%= name %> Publicación</h1>
+<%= form_for(@forum) do |f| %>
+	<% @forum.errors.full_messages.each do |message| %>
+		<div class="be-red white top-space">
+			*<%= message %>
+		</div>
+	<%end%>
+	<div class="field">
+		<%= f.label :slogan, "Pon un Slogan" %><br>
+		<%= f.text_field :slogan, placeholder: "Slogan", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.label :presentacion, "Crea una Descripción" %><br>
+		<%= f.text_area :presentacion, placeholder: "Coloque una presentación", style:"height: 250px;", class:"form-control" %>
+	</div>
+	<div class="field">
+	<%= f.submit "Grabar", class:"btn be-red white large-padding" %>
+	</div>
+
+<%end%>

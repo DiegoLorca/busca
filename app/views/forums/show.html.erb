@@ -1,0 +1,57 @@
+<%= form_for(@forum) do |f| %>
+	<h1 class="field"><%= @forum.slogan %></h1>
+	<% unless @forum.user.nil? %>
+	<p class="field">
+		Escrito por: <%= @forum.user.title %>
+	</p>
+	<%end%>
+	<p class="field">
+		Visitas: <%= @forum.visits_count %>
+	</p>
+	<div class="field">
+		<%= @forum.presentacion %>
+	</div>
+	<div class="field">
+		<%= @forum.hora %>
+	</div>
+	<p class="field">
+		<%= link_to "Editar", edit_forum_path(@forum) %>
+	</p>
+
+	<% if user_signed_in? %>
+	<br>
+	<div class="field">
+	<%= f.submit "Ver Curriculum", class:"btn be-red white large-padding" %>
+	</div>
+	<br>
+	<br>
+	<h1 class="field">Simulador de precio por hora</h1>
+
+<!--	<div class="field">
+    	<%= f.label :hora, "Seleccione una fecha" %><br />
+    	<%= f.text_field :hora, class:"form-control" %>
+	</div>-->
+
+	<div class='field'>
+    <% hora = {'0' => '0', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6' } %>
+      <% lista = hora.sort %>
+
+      <%= f.label :hora %>
+      <%= f.select :hora, lista %>
+  </div>
+
+	<div class="field">
+		<p>Valor total de clase</p>
+		<%= @forum.user.precio %>
+		
+	</div>
+	<% [1,2,3,4].each do |number| %>
+		<p class="field"> Numero: <%= number * 2 %> </p>
+	<%end%>
+	<!--hay que hacer un def en el modelo, definiendo la sumatoria entre el precio y la cantidad de hora-->
+	<%end%>
+	<br>
+<%end%>
+<div class="field">
+	<%= button_to "Me interesa", new_reservation_path(@reservation), :class => "button", :method => :get  %>
+</div>

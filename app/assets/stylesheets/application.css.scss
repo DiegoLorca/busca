@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+  *= require jquery-ui/datepicker
+ *= require_tree .
+ *= require_self
+ */
+
+
+body {
+  font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 20px 50px 150px;
+  font-size: 13px;
+  text-align: center;
+  /*background: #ECF0F1;*/
+  background: url(http://www.fondos7.net/wallpaper-original/wallpapers/clases-de-guitarra-7500.jpg) no-repeat;
+  background-size: cover;
+}
+
+
+ul {
+  text-align: left;
+  display: inline;
+  margin: 0;
+  padding: 15px 4px 17px 0;
+  list-style: none;
+}
+ul li {
+  font: bold 12px/18px sans-serif;
+  display: inline-block;
+  margin-right: -4px;
+  position: relative;
+  padding: 15px 20px;
+  background: rgb(1, 90, 127);
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  color: #fff;
+}
+ul li:hover {
+  background: rgb(62, 187, 233);
+  color: rgb(255, 255, 255);
+}
+ul li ul {
+  padding: 0;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 150px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+}
+ul li ul li { 
+  background: #2C3E50; 
+  display: block; 
+  color: #fff;
+}
+ul li ul li:hover { background: #1abc9c; }
+ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+.home {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.contact {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.ill {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.field {
+  color: #FFFFFF;
+}
